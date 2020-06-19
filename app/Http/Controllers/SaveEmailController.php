@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Email;
+use App\Http\Requests\SaveEmailRequest;
 
 class SaveEmailController extends Controller
 {
@@ -12,8 +13,12 @@ class SaveEmailController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
+    public function __invoke(SaveEmailRequest $request)
     {
-        echo 'it works!';
+        Email::create([
+            'email' => $request['email'],
+        ]);
+        return response('Operation successful', 200)
+            ->header('Content-Type', 'text/plain');
     }
 }
