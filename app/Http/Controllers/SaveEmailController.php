@@ -10,7 +10,7 @@ class SaveEmailController extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param SaveEmailRequest $request
      * @return \Illuminate\Http\Response
      */
     public function __invoke(SaveEmailRequest $request)
